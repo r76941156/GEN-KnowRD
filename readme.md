@@ -124,3 +124,7 @@ Users should review and adapt the SLURM configuration to match their local HPC e
 ## Citation
 
 Yan C, Su WC, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL. GEN-KnowRD: Reframing AI for Rare Disease Recognition. medRxiv. 2026:2026-03.
+
+## License / Intended Use
+This repository is provided solely for non-commercial research purposes. It is intended to support academic research, evaluation, and educational use only.
+Use of this repository, in whole or in part, for commercial purposes, clinical deployment, product development, or other business use is not permitted without prior written permission from the authors.
