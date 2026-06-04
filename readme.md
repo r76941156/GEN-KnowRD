@@ -128,7 +128,7 @@ Databricks is used for large-scale analytics, LLM-assisted disease summary gener
 
 ## Citation
 
-Yan C, Su WC, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL. **GEN-KnowRD: Reframing AI for Rare Disease Recognition.** medRxiv. 2026:2026-03.
+Yan, C., Su, W. C., Xin, Y., Grabowska, M. E., Kerchberger, V. E., Borza, V. A., ... & Wei, W. Q. (2026). Reframing AI for Rare Disease Recognition. Research square, rs-3.
 
 ---
 
