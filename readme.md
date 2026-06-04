@@ -1,6 +1,8 @@
 # GEN-KnowRD: Reframing AI for Rare Disease Recognition
 
-This document describes the Gen-KnowRD research workflow for inference and embedding fine-tuning, as well as the execution environments and hardware configurations used across HPC and Databricks platforms. Within this broader workflow, Qwen3 8B–based models are included as part of the implementation.
+This repository describes the GEN-KnowRD research workflow for rare disease recognition, including embedding-based retrieval, reranking, embedding fine-tuning, and downstream evaluation. The workflow integrates Qwen3 8B–based embedding and reranker models, high-performance computing resources, and Databricks-based analytics.
+
+Within this broader workflow, Qwen3 models are used to support dense embedding generation, disease reranking, and embedding fine-tuning for knowledge-driven rare disease prioritization.
 
 ---
 
@@ -8,123 +10,130 @@ This document describes the Gen-KnowRD research workflow for inference and embed
 
 This project uses the following **Qwen3** models hosted on Hugging Face:
 
-- **Qwen3-Embedding-8B**  
+* **Qwen3-Embedding-8B**
   https://huggingface.co/Qwen/Qwen3-Embedding-8B
 
-- **Qwen3-Reranker-8B**  
+* **Qwen3-Reranker-8B**
   https://huggingface.co/Qwen/Qwen3-Reranker-8B
 
-The Hugging Face model pages are the **authoritative and up-to-date sources** for:
-- Environment requirements  
-- Installation instructions  
-- Example usage  
-- Model configuration options  
-- License and usage restrictions  
+The Hugging Face model pages should be treated as the **authoritative and most up-to-date sources** for:
+
+* Environment requirements
+* Installation instructions
+* Example usage
+* Model configuration options
+* License terms and usage restrictions
+
+Users should review the documentation for both models before running the code in this repository.
 
 ---
 
-## Inference
+## Local Example Notebook
 
-### Purpose
-Inference is used for:
-- Dense embedding generation  
-- Disease reranking using the Qwen3 embedding and reranker models
-- Large-scale evaluation and analysis pipelines  
+For users interested in exploring the GEN-KnowRD approach locally, we provide an example notebook:
 
-### Execution Environment
+* `Example_with_overview.ipynb`
 
-Inference can be executed on an **HPC environment** when GPU acceleration is required, and integrated with downstream analytics and data processing workflows on **Databricks**.
+This notebook provides a practical overview of how to work with the embedding and reranker components in a local environment. Before running the notebook, users should first review the introductory documentation for both the Qwen3 embedding model and the Qwen3 reranker model, then install the required Python packages and dependencies.
 
-Databricks is used for:
-- Large-scale data preparation  
-- PySpark- and Spark SQL–based analytics
-  - BM25 (Okapi BM25) for sparse lexical retrieval and initial candidate ranking
-  - RRF (Reciprocal Rank Fusion) for combining multiple ranking signals into a unified score
-- Evaluation and result aggregation  
-
-### Hardware Configuration
-
-**HPC (Inference):**
-- 2 × NVIDIA H100 GPUs  
-- CUDA-enabled environment  
-- Compatible PyTorch and driver versions  
-
-**Databricks (Analytics & Integration):**
-- 8 vCPUs  
-- 64 GiB memory  
-- 1–4 worker nodes (autoscaling enabled)
+The notebook is intended as a lightweight starting point for understanding the workflow. It may need to be adapted depending on the local hardware environment, available GPU memory, installed CUDA/PyTorch versions, and local file paths.
 
 ---
 
 ## Embedding Fine-Tuning
 
 ### Purpose
-Embedding fine-tuning adapts **Qwen3-Embedding-8B** to LLM-generated rare disease sections to improve:
-- Semantic similarity  
-- Retrieval quality  
-- Downstream reranking performance  
+
+Embedding fine-tuning adapts **Qwen3-Embedding-8B** to LLM-generated rare disease knowledge sections. This step is designed to improve:
+
+* Semantic similarity
+* Retrieval quality
+* Downstream reranking performance
 
 ### Fine-Tuning Framework
 
 Embedding fine-tuning is performed using **SWIFT**.
 
-Official SWIFT documentation:  
+Official SWIFT documentation:
 https://swift.readthedocs.io/en/latest/GetStarted/SWIFT-installation.html
 
 SWIFT supports:
-- Distributed training  
-- LoRA / parameter-efficient fine-tuning  
-- Checkpointing and output management  
+
+* Distributed training
+* LoRA and other parameter-efficient fine-tuning approaches
+* Checkpointing and output management
 
 ---
 
 ## HPC Training Setup
 
-### Training Script
-
 Embedding fine-tuning is configured to run on an **HPC cluster** using SLURM.
 
-- **Training script:**  
-  `HPC_scripts/embedding_training.slurm`
+Training script:
+
+* `HPC_scripts/embedding_training.slurm`
 
 This script includes:
-- GPU, memory, and wall-time configuration  
-- SWIFT training command  
-- Model checkpoint paths  
-- Dataset input and output directories  
 
-Users should review and adapt the SLURM configuration to match their local HPC environment.
+* GPU, memory, and wall-time configuration
+* SWIFT training command
+* Model checkpoint paths
+* Dataset input directories
+* Output directories
 
-### Hardware Configuration (HPC)
+Users should review and adapt the SLURM configuration to match their local HPC environment, queue policy, storage paths, and available GPU resources.
 
-- 2 × NVIDIA H100 GPUs  
-- CUDA-enabled environment  
-- Compatible PyTorch and driver versions  
+### Hardware Configuration
+
+The fine-tuning experiments were configured using:
+
+* 2 × NVIDIA H100 GPUs
+* CUDA-enabled environment
+* Compatible PyTorch and NVIDIA driver versions
+
+---
+
+## Databricks Analytics and Evaluation
+
+Databricks is used for large-scale analytics, LLM-assisted disease summary generation, result aggregation, and evaluation.
+
+### Databricks Hardware Configuration
+
+* 8 vCPUs
+* 64 GiB memory
+* 1–4 worker nodes with autoscaling enabled
 
 ---
 
 ## Execution Scope Summary
 
-| Task | Environment | Hardware |
-|-----|------------|----------|
-| Inference | HPC | 2 × NVIDIA H100 GPUs |
-| Embedding Fine-Tuning | HPC (SLURM) | 2 × NVIDIA H100 GPUs |
-| Data Processing & Evaluation | Databricks | 8 vCPUs, 64 GiB RAM, 1–4 workers |
+| Task                           | Environment                              | Hardware                         |
+| ------------------------------ | ---------------------------------------- | -------------------------------- |
+| Local example workflow         | Local machine or GPU-enabled environment | User-dependent                   |
+| Embedding fine-tuning          | HPC with SLURM                           | 2 × NVIDIA H100 GPUs             |
+| Data processing and evaluation | Databricks                               | 8 vCPUs, 64 GiB RAM, 1–4 workers |
 
 ---
 
 ## Notes and Best Practices
 
-- These are **8B-parameter models** and require GPU resources for training and high-throughput inference.
-- Verify CUDA, PyTorch, and driver compatibility before execution.
-- Review all **model licenses** and **data usage restrictions** before training or deployment.
+* Qwen3-Embedding-8B and Qwen3-Reranker-8B are 8B-parameter models and may require GPU resources for efficient execution.
+* Verify CUDA, PyTorch, and NVIDIA driver compatibility before running GPU-based workflows.
+* Review the Hugging Face documentation for both models before running the example notebook, reranking, or fine-tuning.
+* Review all model licenses, data licenses, and data usage restrictions before training, evaluation, or deployment.
+* Local execution may require changes to file paths, batch sizes, precision settings, and device configuration depending on the available hardware.
+* The example notebook is intended for research and demonstration purposes and may require additional adaptation for large-scale runs.
 
 ---
 
 ## Citation
 
-Yan C, Su WC, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL. GEN-KnowRD: Reframing AI for Rare Disease Recognition. medRxiv. 2026:2026-03.
+Yan C, Su WC, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL. **GEN-KnowRD: Reframing AI for Rare Disease Recognition.** medRxiv. 2026:2026-03.
+
+---
 
 ## License / Intended Use
+
 This repository is provided solely for non-commercial research purposes. It is intended to support academic research, evaluation, and educational use only.
+
 Use of this repository, in whole or in part, for commercial purposes, clinical deployment, product development, or other business use is not permitted without prior written permission from the authors.
