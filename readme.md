@@ -123,10 +123,9 @@ Databricks is used for large-scale analytics, LLM-assisted disease summary gener
 
 * Qwen3-Embedding-8B and Qwen3-Reranker-8B are 8B-parameter models and may require GPU resources for efficient execution.
 * Verify CUDA, PyTorch, and NVIDIA driver compatibility before running GPU-based workflows.
-* Review the Hugging Face documentation for both models before running the example notebook, reranking, or fine-tuning.
+* Review the Hugging Face documentation for all models before running the example notebook, reranking, or fine-tuning.
 * Review all model licenses, data licenses, and data usage restrictions before training, evaluation, or deployment.
 * Local execution may require changes to file paths, batch sizes, precision settings, and device configuration depending on the available hardware.
-* The example notebook is intended for research and demonstration purposes and may require additional adaptation for large-scale runs.
 
 ---
 
@@ -139,5 +138,3 @@ Yan, C., Su, W. C., Xin, Y., Grabowska, M. E., Kerchberger, V. E., Borza, V. A.,
 ## License / Intended Use
 
 This repository is provided solely for non-commercial research purposes. It is intended to support academic research, evaluation, and educational use only.
-
-Use of this repository, in whole or in part, for commercial purposes, clinical deployment, product development, or other business use is not permitted without prior written permission from the authors.
