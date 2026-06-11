@@ -44,6 +44,18 @@ The notebook is intended as a lightweight starting point for understanding the w
 
 ---
 
+## Databricks Analytics and Evaluation (PySpark/SparkSQL)
+
+Databricks is used for large-scale analytics, LLM-assisted disease summary generation, result aggregation, and evaluation.
+
+### Databricks Hardware Configuration
+
+* 8 vCPUs
+* 64 GiB memory
+* 1–4 worker nodes with autoscaling enabled
+
+---
+
 ## Embedding Fine-Tuning
 
 ### Purpose
@@ -94,18 +106,6 @@ The fine-tuning experiments were configured using:
 * 2 × NVIDIA H100 GPUs
 * CUDA-enabled environment
 * Compatible PyTorch and NVIDIA driver versions
-
----
-
-## Databricks Analytics and Evaluation (PySpark/SparkSQL)
-
-Databricks is used for large-scale analytics, LLM-assisted disease summary generation, result aggregation, and evaluation.
-
-### Databricks Hardware Configuration
-
-* 8 vCPUs
-* 64 GiB memory
-* 1–4 worker nodes with autoscaling enabled
 
 ---
 
