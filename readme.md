@@ -115,8 +115,7 @@ The fine-tuning experiments were configured using:
 | ------------------------------ | ---------------------------------------- | -------------------------------- |
 | Local example workflow         | Local machine or GPU-enabled environment | User-dependent                   |
 | Embedding fine-tuning          | HPC with SLURM                           | 2 × NVIDIA H100 GPUs             |
-| Large-scale data processing and evaluation
- | Databricks                               | 8 vCPUs, 64 GiB RAM, 1–4 workers |
+| Large-scale data processing and evaluation | Databricks                               | 8 vCPUs, 64 GiB RAM, 1–4 workers |
 
 ---
 
