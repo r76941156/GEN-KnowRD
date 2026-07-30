@@ -116,7 +116,7 @@ The fine-tuning experiments were configured using:
 | Minimal sparse-retrieval and evaluation workflow   | Standard local workstation       | CPU only; no GPU required                                                                                       |
 | Dense retrieval and Stage 2 reranking      | Local or GPU-enabled environment | A single GPU is recommended; memory requirements depend on sequence length, batch size, and numerical precision |
 | Disease-profile generation                 | Hosted commercial LLM APIs       | API access required; no local GPU required                                                                      |
-| Embedding fine-tuning from scratch         | HPC with SLURM                   | Original configuration: 2 × NVIDIA H100 GPUs, 128 GB RAM, and 16 CPU cores                                      |
+| Embedding fine-tuning from scratch         | HPC with SLURM                   | Original training configuration: 2 × NVIDIA H100 GPUs, 128 GB RAM, and 16 CPU cores                                      |
 | Large-scale data processing and evaluation | Databricks                       | 8 vCPUs, 64 GiB RAM, and 1–4 workers                                                                            |
 ---
 
