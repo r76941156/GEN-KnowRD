@@ -1,4 +1,4 @@
-# GEN-KnowRD: Reframing AI for Rare Disease Recognition
+# Reframing AI for Rare Disease Recognition
 
 This repository describes the GEN-KnowRD research workflow for rare disease recognition, including embedding-based retrieval, disease reranking, embedding fine-tuning, and downstream evaluation. The workflow integrates Qwen3 8B–based embedding and reranker models, high-performance computing resources, a local Jupyter notebook example, and Databricks-based large-scale analytics notebooks.
 
@@ -132,7 +132,7 @@ The fine-tuning experiments were configured using:
 
 ## Citation
 
-Yan, C., Su, W. C., Xin, Y., Grabowska, M. E., Kerchberger, V. E., Borza, V. A., ... & Wei, W. Q. (2026). Reframing AI for Rare Disease Recognition. Research square, rs-3.
+Yan C*, Su WC*, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL, Shyr C, Feng Q, Stein CM, Wang K, Embi PJ, Malin BA, Liu H, Wei WQ. Reframing AI for rare disease recognition. Nature Communications. In press.
 
 ---
 
