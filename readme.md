@@ -132,7 +132,13 @@ The fine-tuning experiments were configured using:
 
 ## Citation
 
-Yan C*, Su WC*, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL, Shyr C, Feng Q, Stein CM, Wang K, Embi PJ, Malin BA, Liu H, Wei WQ. Reframing AI for rare disease recognition. Nature Communications. In press.
+## Citation
+
+If you use this repository or its associated resources in your research, please cite the following publication:
+
+Yan C\*, Su WC\*, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L, Li R, Lynn J, Dickson AL, Shyr C, Feng Q, Stein CM, Wang K, Embi PJ, Malin BA, Liu H, Wei WQ. Reframing AI for Rare Disease Recognition. *Nature Communications*. In press.
+
+\* These authors contributed equally.
 
 ---
 
