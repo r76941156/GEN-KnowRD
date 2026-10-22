@@ -142,6 +142,6 @@ Yan C\*, Su WC\*, Xin Y, Grabowska ME, Kerchberger VE, Borza VA, Wang J, Wang L,
 
 ## License / Intended Use
 
-The original source code and research workflows in this repository are released under the MIT License. This repository is primarily intended to support non-commercial academic research, evaluation, and educational use.
+The original source code and research workflows in this repository are released under the MIT License. This repository is primarily developed to support academic research, reproducibility, evaluation, and educational use.
 
-LLM-generated disease summaries are provided as research resources. Their reuse, redistribution, and use in model training remain subject to applicable third-party rights, underlying data licenses, and LLM provider terms. The MIT License does not extend to third-party content.
+LLM-generated disease summaries are provided as research resources. Their reuse, redistribution, and use in model training remain subject to applicable third-party rights, underlying data licenses, and LLM provider terms. The MIT License does not grant rights to third-party content.
